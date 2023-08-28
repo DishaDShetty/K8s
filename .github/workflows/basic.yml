@@ -33,7 +33,7 @@ jobs:
       
       - name: run the nginx file
         run: |
-          kubectl apply -f ./nginx-deployment.yaml
+          kubectl apply -f nginx-deployment.yaml
 
       - name: Port Forward to NGINX
         run: |
