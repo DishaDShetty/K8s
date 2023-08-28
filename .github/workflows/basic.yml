@@ -34,6 +34,7 @@ jobs:
       - name: run the nginx file
         run: |
           kubectl apply -f ./nginx-deployment.yaml
+          kubectl get deployments
 
       - name: Port Forward to NGINX
         run: |
