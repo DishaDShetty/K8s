@@ -26,7 +26,7 @@ jobs:
       - name: Configure kubectl
         run: |
           kubectl cluster-info --context kind-my-k8s-cluster
-          export KUBECONFIG="$(kind get kubeconfig-path --name="my-k8s-cluster")"
+          kubectl proxy
 
       - name: Print Cluster Info
         run: |
