@@ -26,8 +26,21 @@ jobs:
       - name: Configure kubectl
         run: |
           kubectl cluster-info --context kind-my-k8s-cluster
-          kubectl proxy
 
       - name: Print Cluster Info
         run: |
           kubectl cluster-info
+      
+      - name: run the nginx file
+        run: |
+          kubectl apply -f ./nginx-deployment.yaml
+
+      - name: Port Forward to NGINX
+        run: |
+          kubectl port-forward deployment/nginx-deployment 8080:80 &
+
+      - name: Wait for NGINX to start
+        run: sleep 10
+
+      - name: Access NGINX
+        run: curl http://localhost:8080
