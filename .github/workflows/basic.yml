@@ -22,6 +22,7 @@ jobs:
       - name: Create K8s cluster
         run: |
           kind create cluster --name my-k8s-cluster
+          kind get kubeconfig-path --name my-k8s-cluster
 
       - name: Configure kubectl
         run: |
