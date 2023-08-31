@@ -36,6 +36,14 @@ jobs:
           kubectl apply -f ./nginx-deployment.yaml
           kubectl get deployments
 
+      - name: Install Sysdig Monitor Agent
+        run: |
+          curl -s https://agent.sysdig.com/install | bash -s -- -a $SYSDIG_ACCESS_KEY
+
+      - name: Install Sysdig Secure Agent
+        run: |
+          curl -s https://secure.sysdig.com/install | bash -s -- -a $SYSDIG_ACCESS_KEY
+
       - name: Port Forward to NGINX
         run: |
           kubectl port-forward deployment/nginx-deployment 8080:80 &
