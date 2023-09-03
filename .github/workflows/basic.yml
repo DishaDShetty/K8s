@@ -24,6 +24,9 @@ jobs:
         run: kind create cluster --config kind-config.yaml
         # Replace "kind-config.yaml" with your Kind configuration file's name.
 
+      - name: Set Kubeconfig
+        run: echo "$KUBECONFIG" > $HOME/.kube/config
+
       - name: Deploy Nginx
         run: |
           kubectl create deployment nginx-deployment --image=nginx
