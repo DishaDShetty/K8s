@@ -63,7 +63,7 @@ jobs:
 
     - name: Deploy helloweb app
       run: |
-        kubectl config set-context --current --namespace=your-namespace
+        kubectl config set-context --current --namespace=helloweb
         kubectl get services
         ./kind-deploy-app-helloweb.sh
         kubectl get services
