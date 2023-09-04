@@ -70,11 +70,19 @@ jobs:
 
     - name: integrate sysdig-agent
       run: |
+        kubectl create ns sysdig-agent
         helm repo add sysdig https://charts.sysdig.com
         helm repo update
-        kubectl create namespace sysdig-agent
-        helm install -n sysdig-agent sysdig sysdig/sysdig-deploy -f ./values.sysdig.yaml
-        ./kind-deploy-app-helloweb.sh
+        helm install sysdig-agent --namespace sysdig-agent \
+            --set global.sysdig.accessKey=2228ea51-ce66-4e26-902a-da1ef8a2c209 \
+            --set global.sysdig.region=us4 \
+            --set nodeAnalyzer.secure.vulnerabilityManagement.newEngineOnly=true \
+            --set global.kspm.deploy=true \
+            --set nodeAnalyzer.nodeAnalyzer.benchmarkRunner.deploy=false \
+            --set global.clusterConfig.name=kind-kind \
+            sysdig/sysdig-deploy
+      #         helm install -n sysdig-agent sysdig sysdig/sysdig-deploy -f ./values.sysdig.yaml
+      # ./kind-deploy-app-helloweb.sh
 
 
 
