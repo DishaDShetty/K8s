@@ -47,7 +47,7 @@ jobs:
       run: kubectl get pods -n kube-system
 
     - name: Export k8s keys(client) and certificates(client, cluster CA)
-      run: kind-export-cert.sh
+      run: ./kind-export-cert.sh
 
     - name: Install k8s dashboard
       run: kind-add-dashboard.sh
