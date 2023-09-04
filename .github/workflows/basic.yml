@@ -50,16 +50,16 @@ jobs:
       run: ./kind-export-cert.sh
 
     - name: Install k8s dashboard
-      run: kind-add-dashboard.sh
+      run: ./kind-add-dashboard.sh
 
     - name: Install Nginx ingress
-      run: kind-add-ingress-nginx.sh
+      run: ./kind-add-ingress-nginx.sh
 
     - name: Install MetalLB
-      run: kind-add-metallb.sh
+      run: ./kind-add-metallb.sh
 
     - name: Deploy httpd web server and create an ingress rule for a localhost (http://demo.localdev.me:80/), Patch ingress-nginx-controller service type -> LoadBlancer
-      run: kind-deploy-app-nginx-ingress-localhost.sh
+      run: ./kind-deploy-app-nginx-ingress-localhost.sh
 
     - name: Deploy helloweb app
-      run: kind-deploy-app-helloweb.sh
+      run: ./kind-deploy-app-helloweb.sh
