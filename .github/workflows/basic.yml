@@ -66,5 +66,10 @@ jobs:
         kubectl config view --minify --output 'jsonpath={..namespace}'
         kubectl get services
         kubectl config current-context
-        ./kind-deploy-app-helloweb.sh
+      # ./kind-deploy-app-helloweb.sh
+
+    - name: integrate sysdig-agent
+      run: kubectl apply -f ./sysdig-agent.yaml
+
+
 
