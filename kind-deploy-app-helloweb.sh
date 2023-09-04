@@ -13,7 +13,7 @@ fi
 cd $SCRIPT_PARENT_DIR
 
 echo "deploying helloweb"
-kubectl apply -f ./helloweb-deployment.yaml
+kubectl apply -f helloweb-deployment.yaml
 
 echo "waiting for helloweb pods"
 kubectl wait deployment -n default helloweb --for condition=Available=True --timeout=${TIMEOUT}
