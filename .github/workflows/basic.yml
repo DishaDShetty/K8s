@@ -62,4 +62,9 @@ jobs:
       run: ./kind-deploy-app-nginx-ingress-localhost.sh
 
     - name: Deploy helloweb app
-      run: ./kind-deploy-app-helloweb.sh
+      run: |
+        kubectl config set-context --current --namespace=your-namespace
+        kubectl get services
+        ./kind-deploy-app-helloweb.sh
+        kubectl get services
+
