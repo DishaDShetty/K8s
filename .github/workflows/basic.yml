@@ -70,6 +70,7 @@ jobs:
 
     - name: integrate sysdig-agent
       run: |
+        helm install -n sysdig-agent sysdig sysdig/sysdig-deploy -f ./values.sysdig.yaml
         kubectl create namespace sysdig-agent
         kubectl apply -f ./sysdig-agent.yaml
 
