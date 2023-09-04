@@ -69,7 +69,9 @@ jobs:
       # ./kind-deploy-app-helloweb.sh
 
     - name: integrate sysdig-agent
-      run: kubectl apply -f ./sysdig-agent.yaml
+      run: |
+        kubectl create namespace sysdig-agent
+        kubectl apply -f ./sysdig-agent.yaml
 
 
 
