@@ -35,8 +35,8 @@ jobs:
 
 
 
-    - name: Wait for NGINX pods to be ready
-      run: kubectl wait --for=condition=ready pod -l app=nginx --timeout=300s
+    # - name: Wait for NGINX pods to be ready
+    #   run: kubectl wait --for=condition=ready pod -l app=nginx --timeout=300s
 
     - name: Access NGINX
       run: |
