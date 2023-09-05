@@ -20,6 +20,8 @@ jobs:
         mv ./kind /usr/local/bin/
         kind create cluster --name my-cluster
         kind get clusters
+        kubectl get pods -l app=nginx
+
 
 
     - name: Deploy NGINX
