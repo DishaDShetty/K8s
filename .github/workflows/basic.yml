@@ -20,7 +20,6 @@ jobs:
         mv ./kind /usr/local/bin/
         kind create cluster --name my-cluster
         kind get clusters
-        ls ~/.kube+
 
 
     - name: Deploy NGINX
