@@ -18,13 +18,26 @@ jobs:
         curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
         chmod +x ./kind
         mv ./kind /usr/local/bin/
-        kind create cluster --config=./kind-config.yaml
+        kind create cluster --name my-cluster
+        kind get clusters
+
 
     - name: Deploy NGINX
       run: |
         kubectl apply -f ./nginx-deployment.yaml
         kubectl apply -f ./nginx-service.yaml
         kubectl get svc nginx-service
+
+        
+    - name: Wait for NGINX pods to be ready
+      run: kubectl wait --for=condition=ready pod -l app=nginx --timeout=300s
+
+    - name: Access NGINX
+      run: |
+        NGINX_PORT=$(kubectl get svc/nginx-service -o=jsonpath='{.spec.ports[0].nodePort}')
+        NODE_IP=$(kubectl get nodes -o=jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+        NGINX_URL="http://${NODE_IP}:${NGINX_PORT}/"
+        echo "NGINX URL: $NGINX_URL"
 
 
     - name: integrate sysdig-agent
