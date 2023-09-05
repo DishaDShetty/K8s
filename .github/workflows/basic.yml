@@ -19,7 +19,6 @@ jobs:
         chmod +x ./kind
         mv ./kind /usr/local/bin/
         kind create cluster --config=./kind-config.yaml
-      working-directory: .github/workflows
 
     - name: Deploy NGINX
       run: |
