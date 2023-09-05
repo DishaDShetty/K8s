@@ -71,9 +71,9 @@ jobs:
     - name: integrate sysdig-agent
       run: |
         curl -s https://download.sysdig.com/stable/install-agent | sudo bash -s -- --access_key 2228ea51-ce66-4e26-902a-da1ef8a2c209 --collector ingest.us4.sysdig.com --secure true
-        sudo systemctl status sysdig-agent
-        sudo systemctl enable sysdig-agent
-        sudo systemctl start sysdig-agent
+      # sudo systemctl status sysdig-agent
+      # sudo systemctl enable sysdig-agent
+      # sudo systemctl start sysdig-agent
 
       #         helm install -n sysdig-agent sysdig sysdig/sysdig-deploy -f ./values.sysdig.yaml
       # ./kind-deploy-app-helloweb.sh
