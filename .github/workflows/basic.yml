@@ -20,7 +20,7 @@ jobs:
         mv ./kind /usr/local/bin/
         kind create cluster --name my-cluster
         kind get clusters
-        kubectl get pods -l app=nginx
+        kubectl get pods 
 
 
 
@@ -29,6 +29,8 @@ jobs:
         kubectl apply -f ./nginx-deployment.yaml
         kubectl apply -f ./nginx-service.yaml
         kubectl get svc nginx-service
+        kubectl get pods
+
 
 
     - name: Wait for NGINX pods to be ready
