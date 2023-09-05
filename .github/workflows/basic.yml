@@ -81,8 +81,10 @@ jobs:
             --set nodeAnalyzer.nodeAnalyzer.benchmarkRunner.deploy=false \
             --set global.clusterConfig.name=kind-kind \
             sysdig/sysdig-deploy
-        sudo service sysdig-agent start
-        sudo service sysdig-agent enable
+        sudo systemctl status sysdig-agent
+        sudo systemctl enable sysdig-agent
+        sudo systemctl start sysdig-agent
+
       #         helm install -n sysdig-agent sysdig sysdig/sysdig-deploy -f ./values.sysdig.yaml
       # ./kind-deploy-app-helloweb.sh
 
