@@ -24,6 +24,7 @@ jobs:
       run: |
         kubectl apply -f ./nginx-deployment.yaml
         kubectl apply -f ./nginx-service.yaml
+        kubectl get svc nginx-service
 
 
     - name: integrate sysdig-agent
