@@ -29,7 +29,9 @@ jobs:
         kubectl apply -f ./nginx-deployment.yaml
         kubectl apply -f ./nginx-service.yaml
         kubectl get svc nginx-service
-        kubectl get pods
+        kubectl get nodes
+        kubectl get pods -A
+        kubectl cluster-info
 
 
 
