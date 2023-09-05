@@ -23,6 +23,7 @@ jobs:
     - name: Deploy NGINX
       run: |
         kubectl apply -f ./nginx-deployment.yaml
+        kubectl apply -f ./nginx-service.yaml
 
 
     - name: integrate sysdig-agent
