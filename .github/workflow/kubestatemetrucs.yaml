@@ -1,0 +1,20 @@
+name: continuous-integration
+
+on:
+  push:
+    branches:
+    - kubestatemetrics
+
+
+jobs:
+  ci-go-lint:
+    name: change the name
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v4
+
+    - name: get deployment status
+      uses: |
+        kubectl apply -f kube-state-metrics-config/
+        kubectl get deployments kube-state-metrics -n kube-system
