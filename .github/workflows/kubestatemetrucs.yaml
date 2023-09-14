@@ -3,7 +3,7 @@ name: Deploy kube-state-metrics in KinD
 on:
   push:
     branches:
-      - main  # Change to your main branch name
+      - kubestatemetrics  # Change to your main branch name
 
 jobs:
   deploy:
