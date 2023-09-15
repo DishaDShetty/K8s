@@ -24,4 +24,4 @@ jobs:
 
       - name: Deploy kube-state-metrics
         run: |
-          kubectl apply -f https://github.com/kubernetes/kube-state-metrics/releases/download/v2.1.0/kubernetes/kube-state-metrics-deployment.yaml
+          kubectl apply -f kube-state-metrics-deployment.yaml
