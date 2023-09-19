@@ -25,3 +25,4 @@ jobs:
       - name: Deploy kube-state-metrics
         run: |
           kubectl apply -f kube-state-metrics-deployment.yaml
+          kubectl get pods --all namespaces
