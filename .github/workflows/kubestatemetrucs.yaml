@@ -25,5 +25,9 @@ jobs:
       - name: Deploy kube-state-metrics
         run: |
           kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+      - name: Checking the kube-state-metrics
+        run: |
           kubectl get pods --all-namespaces
           kubectl get nodes --all-namespaces
+          kubectl top nodes
