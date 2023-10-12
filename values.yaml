@@ -1,0 +1,13 @@
+# mongodb:
+#   uri: "mongodb://mongodb-service:27017"
+
+# serviceMonitor:
+#   additionalLabels:
+#     release: prometheus
+
+nginx:
+  uri: "nginx://nginx-service:32072"
+
+serviceMonitor:
+  additionalLabels:
+    release: prometheus

@@ -30,4 +30,10 @@ jobs:
         run: |
           kubectl get pods --all-namespaces
           kubectl get nodes --all-namespaces
-          kubectl -n kube-system edit deployments.apps metrics-server
+          kubectl top pods --all-namespaces -l tier=control-plane --sort-by=cpu
+
+      - name: prometheus
+        run: |
+          wget https://github.com/prometheus/prometheus/releases/download/v2.30.3/prometheus-2.30.3.linux-amd64.tar.gz
+          tar xvfz prometheus-2.30.3.linux-amd64.tar.gz
+          cd prometheus-2.30.3.linux-amd64
